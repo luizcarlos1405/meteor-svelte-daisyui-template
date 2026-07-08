@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true, // required by svelte-preprocess for lang="ts"
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "paths": {
+      "/*": ["./*"], // support absolute /imports/* with a leading '/'
+      "meteor/*": ["./node_modules/@types/meteor/*", "./.meteor/local/types/packages.d.ts"]
+    },
+    "preserveSymlinks": true, // required by zodern:types
+    "types": ["node", "mocha"]
+  },
+  "exclude": ["./.meteor/**", "!./.meteor/local/types", "./packages/**"]
+}

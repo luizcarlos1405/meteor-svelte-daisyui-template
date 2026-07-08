@@ -1,0 +1,11 @@
+.meteor
+.meteor/**
+node_modules
+node_modules/**
+_build
+public/build-chunks
+public/build-assets
+private/build-assets
+package-lock.json
+*.lock
+design/*.pen

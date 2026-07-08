@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "quave-one": {
+      "type": "remote",
+      "url": "https://mcp.quave.cloud/",
+      "enabled": true,
+      "oauth": false,
+      "headers": {
+        "authorization": "{env:QUAVE_MCP_KEY}"
+      }
+    },
+    "godot": {
+      "enabled": false
+    },
+    "daisyui-gitmcp": {
+      "type": "remote",
+      "url": "https://gitmcp.io/saadeghi/daisyui",
+      "enabled": true
+    }
+  }
+}

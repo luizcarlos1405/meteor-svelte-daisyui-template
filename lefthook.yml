@@ -1,0 +1,22 @@
+# https://lefthook.dev/configuration/
+pre-commit:
+  parallel: false
+  commands:
+    prettier:
+      glob: '*.{js,ts,svelte,mjs,cjs,css,json,md,yml,yaml}'
+      run: npx prettier --write {staged_files} && git add -- {staged_files}
+    eslint:
+      glob: '*.{js,ts,svelte,mjs,cjs}'
+      run: npx eslint {staged_files}
+    typecheck:
+      glob: '*.{js,ts,svelte,mjs,cjs}'
+      run: npm run typecheck
+    tests:
+      # Fast pure-unit gate (no Meteor boot). Run mocha directly (see eslint/prettier above).
+      run: |
+        if find imports -type f -name "*.test.ts" 2>/dev/null | grep -q .; then
+          echo "[lefthook] running unit tests"
+          npx mocha --import=tsx './imports/api/**/*.test.ts'
+        else
+          echo "[lefthook] no unit tests yet — skipping"
+        fi

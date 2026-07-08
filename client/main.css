@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@plugin 'daisyui' {
+  themes: light --default, dark --prefersdark;
+}
+
+body {
+  background-color: var(--color-base-100);
+  color: var(--color-base-content);
+}
+
+/* Visible keyboard focus baseline (a11y). `:where()` is zero-specificity so it
+   never overrides component-specific focus styles — only fills the gaps. */
+:where(button, a, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
