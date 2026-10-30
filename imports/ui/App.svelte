@@ -2,7 +2,7 @@
   import Router, { push, router } from 'svelte-spa-router';
   import { routes } from './routes';
   import { currentUser, loggingIn } from './stores/auth';
-  import Toast from './components/Toast.svelte';
+  import { toast, dismissToast } from './stores/toast';
 
   const AUTH_ROUTES = ['/login', '/signup'];
 
@@ -22,4 +22,8 @@
   <Router {routes} />
 {/if}
 
-<Toast />
+{#if $toast}
+  <div class="toast toast-center">
+    <button class="alert" onclick={dismissToast}>{$toast.message}</button>
+  </div>
+{/if}

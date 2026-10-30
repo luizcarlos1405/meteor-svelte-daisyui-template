@@ -1,6 +1,21 @@
 const { defineConfig } = require('@meteorjs/rspack');
 const sveltePreprocess = require('svelte-preprocess');
 
+// svelte-loader greps the `--config` file for `conditionNames` on first load, but Meteor passes its
+// own wrapper config (node_modules/@meteorjs/rspack), so the check always misfires. The real client
+// config below does include 'svelte'; preload the loader with that one false-positive warning muted.
+{
+  const warn = console.warn;
+  console.warn = (...args) => {
+    if (!String(args[0]).includes('"resolve.conditionNames"')) warn(...args);
+  };
+  try {
+    require('svelte-loader');
+  } finally {
+    console.warn = warn;
+  }
+}
+
 /**
  * Rspack configuration for Meteor projects.
  *

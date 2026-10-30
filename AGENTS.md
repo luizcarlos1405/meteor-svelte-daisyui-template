@@ -70,4 +70,4 @@ Functional Core + Imperative Shell (SPEC §3):
 
 ## Design
 
-Reusable UI components live in `imports/ui/components/`. The theme tokens are in `client/main.css` (mapped to DaisyUI theme + Tailwind `@theme`).
+No component kit ships with the template — pages use daisyUI classes directly. The theme tokens are in `client/main.css` (mapped to DaisyUI theme + Tailwind `@theme`).

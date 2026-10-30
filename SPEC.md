@@ -225,7 +225,6 @@ imports/
   types/                  # ambient .d.ts shims
   ui/
     pages/                # Home, Login, Signup, AuthLayout
-    components/           # Svelte UI kit
     stores/               # subscribe + Minimongo read stores (no business logic)
     lib/                  # formatters, auth error mapping
 client/

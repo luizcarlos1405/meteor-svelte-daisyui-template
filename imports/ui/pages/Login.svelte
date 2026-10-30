@@ -3,8 +3,6 @@
   import { Accounts } from 'meteor/accounts-base';
   import { push } from 'svelte-spa-router';
   import AuthLayout from './AuthLayout.svelte';
-  import Input from '../components/Input.svelte';
-  import Button from '../components/Button.svelte';
   import { authErrorMessage } from '../lib/authErrors';
 
   let email = $state('');
@@ -102,15 +100,21 @@
     {/if}
 
     {#if phase === 'request'}
-      <Input label="Email" type="email" bind:value={email} placeholder="you@example.com" />
-      <Button type="submit" disabled={busy} class="w-full">
+      <label class="flex flex-col gap-1.5">
+        <span class="text-sm font-medium text-base-content">Email</span>
+        <input class="input w-full" type="email" bind:value={email} placeholder="you@example.com" />
+      </label>
+      <button type="submit" disabled={busy} class="btn w-full btn-primary">
         {busy ? 'Sending…' : 'Request code'}
-      </Button>
+      </button>
     {:else}
-      <Input label="Code" bind:value={token} placeholder="000000" />
-      <Button type="submit" disabled={busy} class="w-full">
+      <label class="flex flex-col gap-1.5">
+        <span class="text-sm font-medium text-base-content">Code</span>
+        <input class="input w-full" bind:value={token} placeholder="000000" />
+      </label>
+      <button type="submit" disabled={busy} class="btn w-full btn-primary">
         {busy ? 'Signing in…' : 'Sign in'}
-      </Button>
+      </button>
       <div class="flex items-center justify-center gap-1 text-[13px]">
         {#if secondsLeft > 0}
           <span class="text-base-content/40">Resend in {secondsLeft}s</span>
