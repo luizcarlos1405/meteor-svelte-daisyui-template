@@ -24,7 +24,7 @@
 
     <div class="flex flex-col gap-4">
       <h1
-        class="max-w-[420px] text-2xl font-bold leading-tight text-base-content lg:text-[30px] lg:leading-[1.15]"
+        class="max-w-[420px] text-2xl leading-tight font-bold text-base-content lg:text-[30px] lg:leading-[1.15]"
       >
         {headline}
       </h1>
